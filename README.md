@@ -18,7 +18,7 @@ $\color{pink}{\text{01100001 01100111 01110010 01100001 01100100 01100101 011000
 ## _Colaboradores:_
 
 <html>
-  <a href="https://github.com/daysebraga"> Dayse Braga</a> & <a href="https://github.com/kelvynnonato"> Kelvin Nonato
+  <a href="https://github.com/daysebraga"> Dayse Braga</a> & <a href="https://github.com/kelvynnonato"> Kelvyn Nonato
   <html>
   <img align="right" height="120" width="200"
     src="https://github.com/user-attachments/assets/46c4eb77-04a2-4ad9-b456-aab1567ae3da"></img>
