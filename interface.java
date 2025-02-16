@@ -42,7 +42,8 @@ int login(){
                 String login = scanner.nextLine();
                 System.out.println("Digete sua senha: \n");
                 String senha = scanner.nextLine();
-                                                    //verificar se o login e senha estão corretos com a class de seguranca 
+                                                    //verificar se o login e senha estão corretos com a class de seguranca
+                Autenticar(login, senha);
                 return login;
     
     }
