@@ -44,6 +44,13 @@ int login(){
                 String senha = scanner.nextLine();
                                                     //verificar se o login e senha estão corretos com a class de seguranca
                 Autenticar(login, senha);
+
+                if(funcionario.Avisos == true)
+                    System.out.println(" ", funcionario.Avisos);
+                else
+                    System.out.println("Sem avisos hoje\n");
+    
+    System.out.println("Bem-vindo/a \n");
                 return login;
     
     }
