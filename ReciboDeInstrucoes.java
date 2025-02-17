@@ -5,7 +5,7 @@ public class ReciboDeInstrucoes {
 
     Scanner teclado = new Scanner(System.in);
 
-    void enviaInstrucao(int fun){
+    void enviaInstrucao(){
 
         System.out.println("Escreva a mensagem desejada: ");
         String msg =  teclado.nextLine();
