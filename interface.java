@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class interface {
 
     public static void main(String[] args) {
+        
         System.out.println("bem vindo...");
         System.out.println("Escolha uma opção:");
         System.out.println("1 - login\n
@@ -23,7 +24,7 @@ public class interface {
                     if(login1 > 2){
                        menu_funcionario();
                     } 
-                    if else(login1 >= 1)
+                    if else(login1 <= 2)
                     {
                         menu_gerente();
                     }
@@ -41,7 +42,8 @@ int login(){
                 String login = scanner.nextLine();
                 System.out.println("Digete sua senha: \n");
                 String senha = scanner.nextLine();
-                                                    //verificar se o login e senha estão corretos com a class de seguranca 
+                                                    //verificar se o login e senha estão corretos com a class de seguranca
+                Autenticar(login, senha);
                 return login;
     
     }
@@ -50,7 +52,19 @@ void menu_funcionario(){
                         2 - Ferias e abono \n  
                         3 - Pagamento \n");
     String opcao = scanner.nextLine();
-                                            // chamada das funcloes de funcionario
+                                            // chamada das funcoes de funcionario
+    switch (opcao){
+
+        case 1:
+            soliticaMsg();
+            break;
+        case 2:
+            AbonoFerias(Id);
+            break;
+        case 3:
+            calculaPagamento();
+            break;
+        }
     }
 void menu_gerente(){
     System.out.println("1 - enviar intrucao \n
@@ -59,6 +73,23 @@ void menu_gerente(){
                         4 - resumo do funcionario\n
                         5 - resumo de todos funcionarios\n");
     String opcao = scanner.nextLine();
-                                            // chamada das funcloes de gerente      
+                                            // chamada das funcoes de gerente    
+    switch (opcao){
+        case 1: 
+            enviaInstrucao();
+            break;
+        case 2:
+            listarFuncionarios();
+            break;
+        case 3:
+            removerFuncionario():
+            break;
+        case 4:
+            resumoFuncionario();
+            break;
+        case 5:
+            resumoFuncionarios();
+            break;
+        }
     }    
 }
