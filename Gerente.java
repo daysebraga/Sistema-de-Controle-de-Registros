@@ -28,4 +28,21 @@ public class Gerente {
         this.senha = senha;
         this.TempoServico = TempoServico;
     }
+
+    public int getID(){
+        return this.ID;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getSenha(){
+        return this.senha;
+    }
+
+    //Em dias
+    public int getTempoServico(){
+        return this.TempoServico;
+    }
 }

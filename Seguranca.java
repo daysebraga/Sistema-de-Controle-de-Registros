@@ -117,26 +117,67 @@ public class Seguranca {
         return "Calculo Tempo de Servico";
     }
 
-    boolean Autenticar(int id, String senha){
+    public int Autenticar(int id, String senha){
 
         for(int i = 0; i<funcionario.length; i++){
             if(funcionario[i].getID() == id && funcionario[i].getSenha().equals(senha)){
                 System.out.println("Autenticacao realizada com sucesso.");
-                return true;
+                return 1;
+            }
+            else{
+                if(gerente.getID() == id && gerente.getSenha().equals(senha)){
+                    System.out.println("Autenticacao realizada com sucesso.");
+                    return 2;
+                }
             }
         }
 
-        return false;
+        return 0;
     }
 
-    String emitirAviso(int id){
+    public String emitirAviso(int id){
+        String aviso;
         for(int i = 0; i<funcionario.length; i++){
-            if(funcionario[i].getID() == id){
-                return "Aviso enviado com sucesso";
+            if(funcionario[i].getID() == id) {
+                for (int j = 0; j < funcionario.length; j++) {
+                    if (funcionario[i].getAviso(j) == null) {
+                        teclado = new Scanner(System.in);
+                        System.out.println("Escreva o aviso:");
+                        aviso = teclado.nextLine();
+                        funcionario[i].addAviso(j, aviso);
+                        return "Aviso enviado com sucesso";
+                    }
+                }
             }
         }
 
         return "Aviso nao pode ser enviado (Funcionario nao encontrado)";
     }
 
+    public void listarFuncionarios(){
+        for(int i = 0; i<funcionario.length; i++){
+            System.out.println(funcionario[i]);
+        }
+    }
+
+    public String removerFuncionario(int IDFuncionario){
+        return "removido";
+    }
+
+    public String resumoFuncionario(int IDFuncionario){
+        return "resumo";
+    }
+
+    public String[] resumoFuncionarios(){
+        String[] resumofuncionarios = new String[10];
+        return resumofuncionarios;
+    }
+
+    public Funcionario[] get_funcionarios(){
+        return this.funcionario;
+    }
+
+    public Funcionario get_funcionario(int num){
+        return this.funcionario[num];
+    }
 }

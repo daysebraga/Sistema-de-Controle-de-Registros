@@ -1,7 +1,6 @@
 public class Justificativas {
-    Funcionario funcionario;
 
-    void soliticaMsg(){
+    public void soliticaMsg(){
 
     }
 

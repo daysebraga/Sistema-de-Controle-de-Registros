@@ -8,6 +8,8 @@ public class Funcionario {
     private String senha;
     private int TempoServico;
     private String[] Avisos;
+    private int Abono;
+    private int Ferias;
 
     //Inicializando
     public Funcionario() {
@@ -20,6 +22,8 @@ public class Funcionario {
         senha = "";
         TempoServico = 0;
         Avisos = new String[0];
+        Abono = 0;
+        Ferias = 0;
     }
 
     public Funcionario(String nome, String genero, String DatadeNascimento,
@@ -46,8 +50,17 @@ public class Funcionario {
         return this.senha;
     }
 
+    //Em dias
     public int getTempoServico(){
         return this.TempoServico;
+    }
+
+    public String getAviso(int i){
+        return this.Avisos[i];
+    }
+
+    public void addAviso(int i, String Aviso){
+        this.Avisos[i] = Aviso;
     }
 
     public String toString(){
