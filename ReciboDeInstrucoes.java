@@ -14,8 +14,11 @@ public class ReciboDeInstrucoes {
 
         for(int i=0; i<funcionario.length; i++){
             if(funcionario.id == Id){
+                funcionario.Avisos = msg;
+                System.out.println(" Mensagem enviada com sucesso!");
             }
+            else
+                System.out.println(" Usuario nao encontrado");
         }
     }
-
 }
