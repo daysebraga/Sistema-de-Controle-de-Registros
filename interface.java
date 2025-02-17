@@ -71,6 +71,9 @@ void menu_funcionario(){
         case 3:
             calculaPagamento();
             break;
+        default:
+            System.out.println("Opção inválida");
+            break;
         }
     }
 void menu_gerente(){
@@ -96,6 +99,9 @@ void menu_gerente(){
             break;
         case 5:
             resumoFuncionarios();
+            break;
+        default:
+            System.out.println("Opção inválida");
             break;
         }
     }    
