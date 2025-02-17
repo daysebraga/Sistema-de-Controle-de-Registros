@@ -13,7 +13,7 @@ public class ReciboDeInstrucoes {
         int Id = teclado.nextInt();
 
         for(int i=0; i<funcionario.length; i++){
-            if(funcionario.id == Id){
+            if(funcionario.ID == Id){
                 funcionario.Avisos = msg;
                 System.out.println(" Mensagem enviada com sucesso!");
             }
