@@ -66,7 +66,6 @@ public class Main {
         int opcao;
         do {
             System.out.println("1 - Enviar instrucao\n" +
-                    "2 - Enviar aviso a um funcionario\n"+
                     "3 - Lista de funcionarios\n" +
                     "4 - Remover funcionario\n" +
                     "5 - Resumo do funcionario\n" +
@@ -78,44 +77,41 @@ public class Main {
             int id;
             switch (opcao) {
                 case 1:
-                    instrucoes.enviaInstrucao();
-                    break;
-                case 2:
                     System.out.println("Insira o ID do funcionario");
                     id = scanner.nextInt();
                     seguranca.emitirAviso(id);
                     break;
-                case 3:
+                case 2:
                     seguranca.listarFuncionarios();
                     break;
-                case 4:
+                case 3:
                     System.out.println("Insira o ID do funcionario");
                     id = scanner.nextInt();
                     seguranca.removerFuncionario(id);
                     break;
-                case 5:
+                case 4:
                     System.out.println("Insira o ID do funcionario");
                     id = scanner.nextInt();
                     seguranca.resumoFuncionario(id);
                     break;
-                case 6:
+                case 5:
                     seguranca.resumoFuncionarios();
                     break;
-                case 7:
+                case 6:
                     //O salario vai ser apenas o valor base a ser multiplicado
                     //não é o valor mensal.
                     System.out.println("Insira o ID do funcionario");
                     id = scanner.nextInt();
                     seguranca.definirSalario(id);
                     break;
-                case 8:
+                case 7:
                     System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Opção inválida");
                     break;
             }
-        }while(opcao != 8);
+        }while(opcao != 7);
     }
 
     public static void main (String[]args){
