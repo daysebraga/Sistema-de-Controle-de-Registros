@@ -16,6 +16,7 @@ public class Gerente {
         ID = 0;
         senha = "";
         TempoServico = 0;
+        avisos = 0;
     }
 
     public Gerente(String nome, String genero, String DatadeNascimento, int CargaHorariaSemanal,
@@ -44,5 +45,8 @@ public class Gerente {
     //Em dias
     public int getTempoServico(){
         return this.TempoServico;
+    }
+    public int getAvisos(){
+        return this.avisos;
     }
 }
