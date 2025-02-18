@@ -68,11 +68,12 @@ public class Main {
         int opcao;
         do {
             System.out.println("1 - Enviar instrucao\n" +
-                    "3 - Lista de funcionarios\n" +
-                    "4 - Remover funcionario\n" +
-                    "5 - Resumo do funcionario\n" +
-                    "6 - Resumo de todos funcionarios\n" +
-                    "7 - Definir salário de funcionário\n"+
+                    "2 - Lista de funcionarios\n" +
+                    "3 - Remover funcionario\n" +
+                    "4 - Resumo do funcionario\n" +
+                    "5 - Resumo de todos funcionarios\n" +
+                    "6 - Definir salário de funcionário\n"+
+                    "7 - ver avisos"+
                     "8 - Sair\n");
             opcao = scanner.nextInt();
             // chamada das funcoes de gerente
@@ -107,11 +108,14 @@ public class Main {
                     seguranca.definirSalario(id);
                     break;
                 case 7:
-                    System.out.println("Saindo...");
-                    break;
+                     seguranca.getAvisosGerente(id);
+                     break;
+                case 8:
+                     System.out.println("Saindo...");
+                     break;
                 default:
-                    System.out.println("Opção inválida");
-                    break;
+                     System.out.println("Opção inválida");
+                     break;
             }
         }while(opcao != 7);
     }
