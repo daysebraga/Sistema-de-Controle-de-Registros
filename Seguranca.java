@@ -170,7 +170,16 @@ public class Seguranca {
             }
         }
     }
-
+     public void getAvisosGerente(int id){
+        for(int i = 0; i<gerente.length; i++){
+            if(gerente[i] != null && gerente[i].getID() == id) {
+                System.out.println("Escolha o aviso que você quer ler");
+                int num = teclado.nextInt() - 1;
+                System.out.println("Aviso "+num+": ");
+                gerente[i].getAviso(num);
+            }
+        }
+    }
     //Funcao para listar os ID e NOMES de todos os funcionarios
     public void listarFuncionarios(){
         for(int i = 0; i<funcionario.length; i++){
