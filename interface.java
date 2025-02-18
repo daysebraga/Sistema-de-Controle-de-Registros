@@ -61,7 +61,7 @@ public class Main {
                     "2 - Lista de funcionarios \n " +
                     "3 - Remover funcionario \n " +
                     "4 - Resumo do funcionario\n " +
-                    "5 - Resumo de todos funcionarios" +
+                    "5 - Resumo de todos funcionarios\n" +
                     "5 - Sair\n");
             opcao = scanner.nextInt();
             // chamada das funcoes de gerente

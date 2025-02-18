@@ -64,7 +64,9 @@ public class Funcionario {
     }
 
     public String toString(){
-        return this.ID+" Funcionário "+this.nome+", "+this.Cargo+", Tempo de Serviço: "+this.TempoServico;
+        return "ID: "+this.ID+" Funcionário "+this.nome+". Cargo: "+this.Cargo+", com carga horaria de "+this.cargaHorariaSemanal+
+                " horas semanais. Tempo de servico: "+this.TempoServico+
+                "Tempo Disponivel de Abono: "+this.Abono+", Tempo Disponivel de Ferias: "+this.Ferias;
     }
 
 }

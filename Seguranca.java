@@ -72,7 +72,7 @@ public class Seguranca {
     }
 
     public String cadastroGerente(){
-        if(gerente == null) {
+        if(gerente.getID() == 0) {
             String nome;
             String genero;
             String dataDeNascimento;
@@ -156,16 +156,27 @@ public class Seguranca {
 
     public void listarFuncionarios(){
         for(int i = 0; i<funcionario.length; i++){
-            System.out.println(funcionario[i]);
+            if(funcionario[i] != null)
+                System.out.println("ID: "+funcionario[i].getID()+" Funcionario: "+funcionario[i].getNome());
         }
     }
 
     public String removerFuncionario(int IDFuncionario){
-        return "removido";
+        for(int i = 0; i<funcionario.length; i++)
+            if(funcionario[i] != null && funcionario[i].getID() == IDFuncionario)
+                funcionario[i] = null;
+
+        return "Funcionario removido!";
     }
 
-    public String resumoFuncionario(int IDFuncionario){
-        return "resumo";
+    public void resumoFuncionario(int IDFuncionario){
+        for(int i = 0; i<funcionario.length; i++)
+            if(funcionario[i].getID() == IDFuncionario && funcionario[i] != null) {
+                System.out.println(funcionario[i]);
+                return;
+            }
+
+        System.out.println("Usuario não encontrado");
     }
 
     public String[] resumoFuncionarios(){
