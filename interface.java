@@ -12,10 +12,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int opcao;
         do {
-            System.out.println("1 - Justificativas \n " +
-                    "2 - Ferias e abono \n " +
-                    "3 - Pagamento \n" +
-                    "4 - Sair \n");
+            System.out.println("1 - Justificativas\n" +
+                    "2 - Ferias e abono\n" +
+                    "3 - Pagamento\n"+
+                    "4 - Seu resumo\n"+
+                    "5 - Ver avisos\n"+
+                    "6 - Sair\n");
             opcao = scanner.nextInt();
             // chamada das funcoes de funcionario
             switch (opcao) {
@@ -24,10 +26,10 @@ public class Main {
                     justificativas.soliticaMsg();
                     break;
                 case 2:
-                    System.out.println("O que voce quer ver? \n" +
-                            "1 - Abono \n" +
-                            "2 - Ferias \n" +
-                            "3 - Voltar");
+                    System.out.println("O que voce quer ver?\n" +
+                            "1 - Abono\n" +
+                            "2 - Ferias\n" +
+                            "3 - Voltar\n");
                     int Fopcao = scanner.nextInt();
 
                     switch (Fopcao) {
@@ -44,47 +46,10 @@ public class Main {
                     pagamento.calculaPagamento();
                     break;
                 case 4:
-                    System.out.println("Saindo...");
-                    break;
-                default:
-                    System.out.println("Opção inválida");
-                    break;
-            }
-        }while(opcao != 4);
-    }
-
-    public static void menu_gerente() {
-        Scanner scanner = new Scanner(System.in);
-        int opcao;
-        do {
-            System.out.println("1 - Enviar intrucao \n " +
-                    "2 - Lista de funcionarios \n " +
-                    "3 - Remover funcionario \n " +
-                    "4 - Resumo do funcionario\n " +
-                    "5 - Resumo de todos funcionarios\n" +
-                    "5 - Sair\n");
-            opcao = scanner.nextInt();
-            // chamada das funcoes de gerente
-            int id;
-            switch (opcao) {
-                case 1:
-                    instrucoes.enviaInstrucao();
-                    break;
-                case 2:
-                    seguranca.listarFuncionarios();
-                    break;
-                case 3:
-                    System.out.println("Insira o ID do funcionario");
-                    id = scanner.nextInt();
-                    seguranca.removerFuncionario(id);
-                    break;
-                case 4:
-                    System.out.println("Insira o ID do funcionario");
-                    id = scanner.nextInt();
                     seguranca.resumoFuncionario(id);
                     break;
                 case 5:
-                    seguranca.resumoFuncionarios();
+                    seguranca.getAvisos(id);
                     break;
                 case 6:
                     System.out.println("Saindo...");
@@ -94,6 +59,63 @@ public class Main {
                     break;
             }
         }while(opcao != 6);
+    }
+
+    public static void menu_gerente() {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+        do {
+            System.out.println("1 - Enviar instrucao\n" +
+                    "2 - Enviar aviso a um funcionario\n"+
+                    "3 - Lista de funcionarios\n" +
+                    "4 - Remover funcionario\n" +
+                    "5 - Resumo do funcionario\n" +
+                    "6 - Resumo de todos funcionarios\n" +
+                    "7 - Definir salário de funcionário\n"+
+                    "8 - Sair\n");
+            opcao = scanner.nextInt();
+            // chamada das funcoes de gerente
+            int id;
+            switch (opcao) {
+                case 1:
+                    instrucoes.enviaInstrucao();
+                    break;
+                case 2:
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.emitirAviso(id);
+                    break;
+                case 3:
+                    seguranca.listarFuncionarios();
+                    break;
+                case 4:
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.removerFuncionario(id);
+                    break;
+                case 5:
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.resumoFuncionario(id);
+                    break;
+                case 6:
+                    seguranca.resumoFuncionarios();
+                    break;
+                case 7:
+                    //O salario vai ser apenas o valor base a ser multiplicado
+                    //não é o valor mensal.
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.definirSalario(id);
+                    break;
+                case 8:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        }while(opcao != 8);
     }
 
     public static void main (String[]args){
@@ -108,7 +130,7 @@ public class Main {
 
             switch(opcao) {
                 case 1:
-                    System.out.println(" login: \n");
+                    System.out.println("login: \n");
                     System.out.println("Digite seu codigo de acesso: \n");
                     int login = scanner.nextInt();
                     System.out.println("Digite sua senha: \n");
