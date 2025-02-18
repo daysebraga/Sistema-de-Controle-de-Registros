@@ -23,7 +23,9 @@ public class Main {
             switch (opcao) {
 
                 case 1:
-                    justificativas.soliticaMsg();
+                    System.out.println(" insira seu ID");
+                    int id = scanner.nextInt();
+                    justificativas.soliticaMsg(id);
                     break;
                 case 2:
                     System.out.println("O que voce quer ver?\n" +
