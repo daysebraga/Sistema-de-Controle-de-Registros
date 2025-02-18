@@ -28,7 +28,7 @@ public class Seguranca {
         boolean salv = false;
 
         for(int i = 0; i<funcionario.length; i++){
-            if(funcionario[i].getNome().equals(nome) && (funcionario[i].getID() == id)){
+            if((funcionario[i] != null) && funcionario[i].getNome().equals(nome) && (funcionario[i].getID() == id)){
                 System.out.println("Este funcionario ja esta cadastrado.");
                 salv = true;
                 break;
@@ -120,12 +120,12 @@ public class Seguranca {
     public int Autenticar(int id, String senha){
 
         for(int i = 0; i<funcionario.length; i++){
-            if(funcionario[i].getID() == id && funcionario[i].getSenha().equals(senha)){
+            if(funcionario[i] != null && funcionario[i].getID() == id && funcionario[i].getSenha().equals(senha)){
                 System.out.println("Autenticacao realizada com sucesso.");
                 return 1;
             }
             else{
-                if(gerente.getID() == id && gerente.getSenha().equals(senha)){
+                if(gerente != null && gerente.getID() == id && gerente.getSenha().equals(senha)){
                     System.out.println("Autenticacao realizada com sucesso.");
                     return 2;
                 }
@@ -179,5 +179,9 @@ public class Seguranca {
 
     public Funcionario get_funcionario(int num){
         return this.funcionario[num];
+    }
+
+    public Gerente getGerente(){
+        return this.gerente;
     }
 }

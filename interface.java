@@ -1,108 +1,171 @@
 import java.util.Scanner;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.io.Serializable;
-import java.util.ArrayList;
 
-public class interface {
+public class Main {
+    public static Seguranca seguranca = new Seguranca();
+    public static ReciboDeInstrucoes instrucoes = new ReciboDeInstrucoes();
+    public static FeriaseAbono feriaseAbono = new FeriaseAbono();
+    public static Justificativas justificativas = new Justificativas();
+    public static Pagamento pagamento = new Pagamento();
 
-    public static void main(String[] args) {
-        
-        System.out.println("bem vindo...");
-        System.out.println("Escolha uma opção:");
-        System.out.println("1 - login\n
-                            2 - cadastrar\n");
-        String opcao = scanner.nextLine();
 
-        switch (opcao) {
-            case 1:
-                int login1 = login();
+    public static void menu_funcionario(int id) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+        do {
+            System.out.println("1 - Justificativas \n " +
+                    "2 - Ferias e abono \n " +
+                    "3 - Pagamento \n" +
+                    "4 - Sair \n");
+            opcao = scanner.nextInt();
+            // chamada das funcoes de funcionario
+            switch (opcao) {
 
-                    if(login1 > 2){
-                       menu_funcionario();
-                    } 
-                    if else(login1 <= 2)
-                    {
-                        menu_gerente();
+                case 1:
+                    justificativas.soliticaMsg();
+                    break;
+                case 2:
+                    System.out.println("O que voce quer ver? \n" +
+                            "1 - Abono \n" +
+                            "2 - Ferias \n" +
+                            "3 - Voltar");
+                    int Fopcao = scanner.nextInt();
+
+                    switch (Fopcao) {
+                        case 1:
+                            feriaseAbono.calculoAbono(seguranca.get_funcionario(id).getTempoServico(), id);
+
+                        case 2:
+                            feriaseAbono.calculoFerias(seguranca.get_funcionario(id).getTempoServico(), id);
+
+                        case 3:
                     }
-            case 2:
-                System.out.println("Cadastrar");
-                break;
-
-            default:
-                System.out.println("Opção inválida");
-                break;
-        }
-int login(){
-     System.out.println(" login: \n");
-                System.out.println("Digite seu codigo de acesso: \n");
-                String login = scanner.nextLine();
-                System.out.println("Digete sua senha: \n");
-                String senha = scanner.nextLine();
-                                                    //verificar se o login e senha estão corretos com a class de seguranca
-                Autenticar(login, senha);
-
-                if(funcionario.Avisos == true)
-                    System.out.println(" ", funcionario.Avisos);
-                else
-                    System.out.println("Sem avisos hoje\n");
-    
-    System.out.println("Bem-vindo/a \n");
-                return login;
-    
+                    break;
+                case 3:
+                    pagamento.calculaPagamento();
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        }while(opcao != 4);
     }
-void menu_funcionario(){
-    System.out.println("1 - justificativas \n
-                        2 - Ferias e abono \n  
-                        3 - Pagamento \n");
-    String opcao = scanner.nextLine();
-                                            // chamada das funcoes de funcionario
-    switch (opcao){
 
-        case 1:
-            soliticaMsg();
-            break;
-        case 2:
-            AbonoFerias(Id);
-            break;
-        case 3:
-            calculaPagamento();
-            break;
-        default:
-            System.out.println("Opção inválida");
-            break;
-        }
+    public static void menu_gerente() {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+        do {
+            System.out.println("1 - Enviar intrucao \n " +
+                    "2 - Lista de funcionarios \n " +
+                    "3 - Remover funcionario \n " +
+                    "4 - Resumo do funcionario\n " +
+                    "5 - Resumo de todos funcionarios" +
+                    "5 - Sair\n");
+            opcao = scanner.nextInt();
+            // chamada das funcoes de gerente
+            int id;
+            switch (opcao) {
+                case 1:
+                    instrucoes.enviaInstrucao();
+                    break;
+                case 2:
+                    seguranca.listarFuncionarios();
+                    break;
+                case 3:
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.removerFuncionario(id);
+                    break;
+                case 4:
+                    System.out.println("Insira o ID do funcionario");
+                    id = scanner.nextInt();
+                    seguranca.resumoFuncionario(id);
+                    break;
+                case 5:
+                    seguranca.resumoFuncionarios();
+                    break;
+                case 6:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+                    break;
+            }
+        }while(opcao != 6);
     }
-void menu_gerente(){
-    System.out.println("1 - enviar intrucao \n
-                        2 - lista de funcionarios \n
-                        3 - remover funcionario \n
-                        4 - resumo do funcionario\n
-                        5 - resumo de todos funcionarios\n");
-    String opcao = scanner.nextLine();
-                                            // chamada das funcoes de gerente    
-    switch (opcao){
-        case 1: 
-            enviaInstrucao();
-            break;
-        case 2:
-            listarFuncionarios();
-            break;
-        case 3:
-            removerFuncionario():
-            break;
-        case 4:
-            resumoFuncionario();
-            break;
-        case 5:
-            resumoFuncionarios();
-            break;
-        default:
-            System.out.println("Opção inválida");
-            break;
-        }
-    }    
+
+    public static void main (String[]args){
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("bem vindo...");
+            System.out.println("Escolha uma opção:");
+            System.out.println("1 - Login\n2 - Cadastrar\n3 - Sair\n");
+            opcao = scanner.nextInt();
+
+            switch(opcao) {
+                case 1:
+                    System.out.println(" login: \n");
+                    System.out.println("Digite seu codigo de acesso: \n");
+                    int login = scanner.nextInt();
+                    System.out.println("Digite sua senha: \n");
+                    scanner = new Scanner(System.in);
+                    String senha = scanner.nextLine();
+
+                    //verficar se o login e senha estão corretos com a class de seguranca
+                    int login1 = seguranca.Autenticar(login, senha);
+
+                    if (login1 == 1) {
+                        menu_funcionario(login);
+                    } else if (login1 == 2) {
+                        menu_gerente();
+                    } else{
+                        System.out.println("Usuario nao encontrado!");
+                    }
+
+                    break;
+                case 2:
+                    int opcao2;
+                    do {
+                        System.out.println("Cadastro de: " +
+                                "1 - Funcionario \n" +
+                                "2 - Gerente \n" +
+                                "3 - Voltar \n");
+                        opcao2 = scanner.nextInt();
+                        switch (opcao2) {
+                            case 1:
+                                seguranca.cadastroFuncionario();
+                                break;
+
+                            case 2:
+                                //realiza o cadastro de Gerente apenas se não houver gerentes cadastrados.
+                                if (seguranca.getGerente().getID() == 0) {
+                                    seguranca.cadastroGerente();
+                                } else {
+                                    System.out.println("Ja tem um gerente cadastrado");
+                                }
+                                break;
+                            case 3:
+                                System.out.println("Voltando...");
+                                break;
+
+                            default:
+                                System.out.println("Opção inválida");
+                                break;
+                        }
+                    } while (opcao2 != 3);
+                    break;
+                case 3:
+                    System.out.println("Saindo...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida, tente novamente!");
+                    break;
+            }
+        }while (opcao != 3);
+    }
 }
