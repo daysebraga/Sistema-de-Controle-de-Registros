@@ -94,6 +94,10 @@ public class Funcionario {
         return tamAvisos2;
     }
 
+    public int getSalario(){
+        return this.Salario;
+    }
+
     public void setAviso(int i){
         Scanner teclado = new Scanner(System.in);
         for (int j = 0; j < i; j++) {
@@ -116,7 +120,7 @@ public class Funcionario {
 
         return "ID: "+this.ID+" Funcionário "+this.nome+". Cargo: "+this.Cargo+", com carga horaria de "+this.cargaHorariaSemanal+
                 " horas semanais. Tempo de servico: "+this.TempoServico+
-                ".\nTempo Disponivel de Abono: "+this.Abono+", Tempo Disponivel de Ferias: "+this.Ferias+" Alertas: "+this.tamAvisos;
+                ".\nTempo Disponivel de Abono: "+this.Abono+", Tempo Disponivel de Ferias: "+this.Ferias+". Alertas: "+this.tamAvisos;
     }
 
 }

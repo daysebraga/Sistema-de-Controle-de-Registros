@@ -1,11 +1,8 @@
 import java.util.Scanner;
 
-public class Main {
+public class Interface {
     public static Seguranca seguranca = new Seguranca();
-    public static ReciboDeInstrucoes instrucoes = new ReciboDeInstrucoes();
     public static FeriaseAbono feriaseAbono = new FeriaseAbono();
-    public static Justificativas justificativas = new Justificativas();
-    public static Pagamento pagamento = new Pagamento();
 
 
     public static void menu_funcionario(int id) {
@@ -23,9 +20,7 @@ public class Main {
             switch (opcao) {
 
                 case 1:
-                    System.out.println(" insira seu ID");
-                    int id = scanner.nextInt();
-                    justificativas.soliticaMsg(id);
+                    seguranca.solicitaMsg(id);
                     break;
                 case 2:
                     System.out.println("O que voce quer ver?\n" +
@@ -45,7 +40,7 @@ public class Main {
                     }
                     break;
                 case 3:
-                    pagamento.calculaPagamento();
+                    seguranca.calculaPagamento(id);
                     break;
                 case 4:
                     seguranca.resumoFuncionario(id);
@@ -73,7 +68,7 @@ public class Main {
                     "4 - Resumo do funcionario\n" +
                     "5 - Resumo de todos funcionarios\n" +
                     "6 - Definir salário de funcionário\n"+
-                    "7 - ver avisos"+
+                    "7 - Ver justificativas\n"+
                     "8 - Sair\n");
             opcao = scanner.nextInt();
             // chamada das funcoes de gerente
@@ -108,8 +103,8 @@ public class Main {
                     seguranca.definirSalario(id);
                     break;
                 case 7:
-                     seguranca.getAvisosGerente(id);
-                     break;
+                    seguranca.getAvisosGerente();
+                    break;
                 case 8:
                      System.out.println("Saindo...");
                      break;
@@ -117,7 +112,7 @@ public class Main {
                      System.out.println("Opção inválida");
                      break;
             }
-        }while(opcao != 7);
+        }while(opcao != 8);
     }
 
     public static void main (String[]args){

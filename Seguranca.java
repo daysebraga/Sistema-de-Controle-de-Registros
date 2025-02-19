@@ -4,6 +4,7 @@ import java.time.LocalDate;
 public class Seguranca {
     Funcionario[] funcionario = new Funcionario[100];
     Gerente gerente = new Gerente();
+    Pagamento pagamento = new Pagamento();
 
 
     public Seguranca(){
@@ -150,7 +151,6 @@ public class Seguranca {
 
     //Funcao para emitir um aviso para um funcionario
     public String emitirAviso(int id){
-        String aviso;
         for(int i = 0; i<funcionario.length; i++){
             if(funcionario[i] != null && funcionario[i].getID() == id) {
                 funcionario[i].setAviso(funcionario.length);
@@ -165,21 +165,27 @@ public class Seguranca {
             if(funcionario[i] != null && funcionario[i].getID() == id) {
                 System.out.println("Escolha o aviso que você quer ler");
                 int num = teclado.nextInt() - 1;
-                System.out.println("Aviso "+num+": ");
+                System.out.println("Aviso "+num+1+": ");
                 funcionario[i].getAviso(num);
             }
         }
     }
-     public void getAvisosGerente(int id){
-        for(int i = 0; i<gerente.length; i++){
-            if(gerente[i] != null && gerente[i].getID() == id) {
-                System.out.println("Escolha o aviso que você quer ler");
-                int num = teclado.nextInt() - 1;
-                System.out.println("Aviso "+num+": ");
-                gerente[i].getAviso(num);
+    public void getAvisosGerente(){
+        System.out.println("Escolha o aviso que você quer ler");
+        int num = teclado.nextInt() - 1;
+        System.out.println("Aviso "+num+1+": ");
+        gerente.getAviso(num);
+    }
+
+    public void calculaPagamento(int id){
+        for(int i = 0; i<funcionario.length; i++){
+            if(funcionario[i] != null && funcionario[i].getID() == id) {
+                System.out.println("Seu pagamento é de: "+pagamento.calculaPagamento(funcionario[i].getSalario(),
+                        funcionario[i].getCargaHoraria())+" reais");
             }
         }
     }
+
     //Funcao para listar os ID e NOMES de todos os funcionarios
     public void listarFuncionarios(){
         for(int i = 0; i<funcionario.length; i++){
@@ -246,5 +252,16 @@ public class Seguranca {
             }
 
         System.out.println("Usuario não encontrado");
+    }
+
+    public String solicitaMsg(int id){
+
+        for(int i = 0; i<funcionario.length; i++)
+            if(funcionario[i] != null && funcionario[i].getID() == id ) {
+                gerente.setAviso(funcionario[i].getNome(), funcionario[i].getID());
+                return "Justificativa enviada com sucesso!";
+            }
+
+        return "Não foi possivel enviar essa Justificativa";
     }
 }

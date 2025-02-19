@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Gerente {
     private String nome;
     private String genero;
@@ -6,6 +8,8 @@ public class Gerente {
     private int ID;
     private String senha;
     private int TempoServico;
+    private Avisos[] Avisos = new Avisos[100];
+
 
     //iniciando vazio
     public Gerente(){
@@ -16,7 +20,6 @@ public class Gerente {
         ID = 0;
         senha = "";
         TempoServico = 0;
-        avisos = 0;
     }
 
     public Gerente(String nome, String genero, String DatadeNascimento, int CargaHorariaSemanal,
@@ -28,6 +31,19 @@ public class Gerente {
         this.ID = ID;
         this.senha = senha;
         this.TempoServico = TempoServico;
+    }
+
+    public void setAviso(String nome, int ID){
+        Scanner teclado = new Scanner(System.in);
+        for (int j = 0; j < 100; j++) {
+            if (Avisos[j] == null) {
+                teclado = new Scanner(System.in);
+                System.out.println("Escreva a justificativa:");
+                Avisos[j] = new Avisos("ID: "+ID+" Nome: "+nome+": "+teclado.nextLine());
+                System.out.println("Justificativa enviada com sucesso");
+                return;
+            }
+        }
     }
 
     public int getID(){
@@ -46,7 +62,9 @@ public class Gerente {
     public int getTempoServico(){
         return this.TempoServico;
     }
-    public int getAvisos(){
-        return this.avisos;
+
+    public void getAviso(int i){
+        if(Avisos[i] != null)
+            System.out.println(this.Avisos[i].getAviso());
     }
 }

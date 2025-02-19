@@ -2,9 +2,13 @@ public class Pagamento {
 
     private int Horario;
 
-    int calculaPagamento(){
 
-        return 0;
+    int calculaPagamento(int salario, int horas){
+        int pagamento;
+
+        pagamento = salario * horas;
+
+        return pagamento;
     }
 
     String HankingFuncionarios(){
