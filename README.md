@@ -1,6 +1,6 @@
 # Sistema de Controle de Registros
 
-$\color{purple}{\text{Sistema de controle de saída e entrada de funcionários (Ponto). }}$
+## _Sistema de controle de saída e entrada de funcionários (Ponto)._
 
 Na elaboração do projeto de Analise de Projetos e Sistemas, temos como principais objetivos: 
 ```ruby
@@ -12,8 +12,6 @@ Na elaboração do projeto de Analise de Projetos e Sistemas, temos como princip
 + Elaborar os diagramas de sequência (para todos os casos de uso expandidos); 
 + dgm de classes de projeto para o sistema.
 ```
-$\color{pink}{\text{A elaboração do Sistema será na linguagem Java! }}$
-$\color{pink}{\text{01100001 01100111 01110010 01100001 01100100 01100101 01100011 01100101 01101101 01101111 01110011 00100000 01100001 00100000 01110110 01101001 01110011 01101001 01110100 01100001 00100000 }}$
 
 ## _Colaboradores:_
 
